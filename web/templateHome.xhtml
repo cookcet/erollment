@@ -1,0 +1,70 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
+
+    <h:head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <title><ui:insert name="title">Default Title</ui:insert></title>
+        <h:outputStylesheet name="css/jsfcrud.css"/>
+        <h:outputStylesheet name="css/style.css"/>
+        <h:outputStylesheet name="js/js.js"/>
+        <script language="JavaScript" type="text/javascript">
+            function login(showhide) {
+                if (showhide == "show") {
+                    document.getElementById('popupbox').style.visibility = "visible";
+                } else if (showhide == "hide") {
+                    document.getElementById('popupbox').style.visibility = "hidden";
+                }
+            }
+            function check(form)
+            {
+
+                if (form.username.value == "admin" &amp;&amp; form.password.value == "admin")
+                {
+                    alert("Login successfully");
+                    window.location = "/ProjectEnroll/faces/manageList.xhtml"
+                    return false;
+                } else
+                {
+                    alert("Error Password or Username")
+                    return false;
+                }
+            }
+        </script>
+    </h:head>
+
+    <h:body>
+        <aside>
+            <ul>
+                <div id="popupbox"> 
+                    <form name="login" action="" method="post">
+                        <br/>
+                        <center style="font-size: 15px">Username:</center>
+                        <center><input name="username" size="14" /></center>
+                        <br/>
+                        <center style="font-size: 15px">Password:</center>
+                        <center><input name="password" type="password" size="14" /></center>
+                        <br/>
+                        <center><input type="submit" name="submit" onclick="return check(this.form)" style="font-size: 15px" value="Login" /></center>
+                    </form>
+                    <br />
+                    <center><a href="javascript:login('hide');" style="font-size: 15px">Close</a></center> 
+                </div>
+                <li><span>Menu</span><span></span></li>
+                <li><span><h:link outcome="/enrollment/Home" value="Home"/></span><span></span></li>
+                <li><span><a href="javascript:login('show');">Login</a></span><span></span></li>
+            </ul>
+        </aside>
+        <div style="margin-left:20%">
+            <h2>
+                List of Mae Khao Tom Student.......
+            </h2>
+            <p>
+                <ui:insert name="body">Default Body</ui:insert>
+            </p>
+        </div>
+    </h:body>
+
+</html>

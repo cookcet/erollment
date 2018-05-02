@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ListEnrollmentTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:form styleClass="jsfcrud_list_form">
+                <h:panelGroup id="messagePanel" layout="block">
+                    <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+                </h:panelGroup>
+                <h:outputText escape="false" value="#{bundle.ListEnrollmentEmpty}" rendered="#{enrollmentController.items.rowCount == 0}"/>
+                <h:commandLink style="margin-left: 5%" class="menu__link" action="#{enrollmentController.prepareCreate}" value="#{bundle.ListEnrollmentCreateLink}"/>
+                <br />
+                <br />
+                <h:panelGroup rendered="#{enrollmentController.items.rowCount > 0}">
+                    <h:outputText value="#{enrollmentController.pagination.pageFirstItem + 1}..#{enrollmentController.pagination.pageLastItem + 1}/#{enrollmentController.pagination.itemsCount}" style="font-size: 18px; margin-left: 5%" />&nbsp;
+                    <h:commandLink action="#{enrollmentController.previous}" value="#{bundle.Previous} #{enrollmentController.pagination.pageSize}" rendered="#{enrollmentController.pagination.hasPreviousPage}"/>&nbsp;
+                    <h:commandLink action="#{enrollmentController.next}" value="#{bundle.Next} #{enrollmentController.pagination.pageSize}" rendered="#{enrollmentController.pagination.hasNextPage}"/>&nbsp;
+                    <h:dataTable value="#{enrollmentController.items}" var="item" border="0" cellpadding="2" cellspacing="0" rowClasses="jsfcrud_odd_row,jsfcrud_even_row" rules="all" style="border:solid 1px">
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListEnrollmentTitle_enrollmentid}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.enrollmentid}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListEnrollmentTitle_student}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.student.stdname}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListEnrollmentTitle_enrollmentgrade}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.enrollmentgrade}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListEnrollmentTitle_enrollmentseme}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.enrollmentseme}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListEnrollmentTitle_clas}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.clas.classeme}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListEnrollmentTitle_enrollmentresult}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.enrollmentresult}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="&nbsp;"/>
+                            </f:facet>
+                            <h:commandLink action="#{enrollmentController.prepareView}" value="#{bundle.ListEnrollmentViewLink}"/>
+                            <h:outputText value=" "/>
+                            <h:commandLink action="#{enrollmentController.prepareEdit}" value="#{bundle.ListEnrollmentEditLink}"/>
+                            <h:outputText value=" "/>
+                            <h:commandLink action="#{enrollmentController.destroy}" value="#{bundle.ListEnrollmentDestroyLink}"/>
+                        </h:column>
+                    </h:dataTable>
+                </h:panelGroup>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

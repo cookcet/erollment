@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ViewStudentTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:commandLink style="margin-left: 15%" class="menu__link" action="#{studentController.prepareCreate}" value="#{bundle.ViewStudentCreateLink}" />
+                <h:commandLink class="menu__link" action="#{studentController.prepareList}" value="#{bundle.ViewStudentShowAllLink}"/>
+                <br />
+                <br />
+                <h:panelGrid columns="2">
+                    <h:outputText value="#{bundle.ViewStudentLabel_studentid}"/>
+                    <h:outputText value="#{studentController.selected.studentid}" title="#{bundle.ViewStudentTitle_studentid}"/>
+                    <h:outputText value="#{bundle.ViewStudentLabel_stdname}"/>
+                    <h:outputText value="#{studentController.selected.stdname}" title="#{bundle.ViewStudentTitle_stdname}"/>
+                    <h:outputText value="#{bundle.ViewStudentLabel_stdlname}"/>
+                    <h:outputText value="#{studentController.selected.stdlname}" title="#{bundle.ViewStudentTitle_stdlname}"/>
+                    <h:outputText value="#{bundle.ViewStudentLabel_stdadd}"/>
+                    <h:outputText value="#{studentController.selected.stdadd}" title="#{bundle.ViewStudentTitle_stdadd}"/>
+                    <h:outputText value="#{bundle.ViewStudentLabel_stdtel}"/>
+                    <h:outputText value="#{studentController.selected.stdtel}" title="#{bundle.ViewStudentTitle_stdtel}"/>
+                    <h:outputText value="#{bundle.ViewStudentLabel_stdfam}"/>
+                    <h:outputText value="#{studentController.selected.stdfam}" title="#{bundle.ViewStudentTitle_stdfam}"/>
+                    <h:outputText value="#{bundle.ViewStudentLabel_stdblood}"/>
+                    <h:outputText value="#{studentController.selected.stdblood}" title="#{bundle.ViewStudentTitle_stdblood}"/>
+                    <h:outputText value="#{bundle.ViewStudentLabel_stdciticode}"/>
+                    <h:outputText value="#{studentController.selected.stdciticode}" title="#{bundle.ViewStudentTitle_stdciticode}"/>
+                </h:panelGrid>
+                <br />
+                <h:link style="margin-left: 15%" class="menu__link" outcome="Edit" value="#{bundle.ViewStudentEditLink}"/>
+                <h:commandLink class="menu__link" action="#{studentController.destroyAndView}" value="#{bundle.ViewStudentDestroyLink}"/>
+              
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

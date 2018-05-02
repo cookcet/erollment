@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.EditEnrollmentTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:commandLink style="margin-left: 15%" class="menu__link" action="#{enrollmentController.prepareList}" value="#{bundle.EditEnrollmentShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.EditEnrollmentLabel_student}" for="student" />
+                    <h:selectOneMenu id="student" value="#{enrollmentController.selected.student}" title="#{bundle.EditEnrollmentTitle_student}" >
+                        <f:selectItems value="#{studentController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                    <h:outputLabel value="#{bundle.EditEnrollmentLabel_enrollmentgrade}" for="enrollmentgrade" />
+                    <h:inputText id="enrollmentgrade" value="#{enrollmentController.selected.enrollmentgrade}" title="#{bundle.EditEnrollmentTitle_enrollmentgrade}" />
+                    <h:outputLabel value="#{bundle.EditEnrollmentLabel_enrollmentseme}" for="enrollmentseme" />
+                    <h:inputText id="enrollmentseme" value="#{enrollmentController.selected.enrollmentseme}" title="#{bundle.EditEnrollmentTitle_enrollmentseme}" />
+                    <h:outputLabel value="#{bundle.EditEnrollmentLabel_clas}" for="clas" />
+                    <h:selectOneMenu id="clas" value="#{enrollmentController.selected.clas}" title="#{bundle.EditEnrollmentTitle_clas}" >
+                        <f:selectItems value="#{clasController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                    <h:outputLabel value="#{bundle.EditEnrollmentLabel_enrollmentresult}" for="enrollmentresult" />
+                    <h:inputText id="enrollmentresult" value="#{enrollmentController.selected.enrollmentresult}" title="#{bundle.EditEnrollmentTitle_enrollmentresult}" />
+                </h:panelGrid>
+                <br />
+                <h:link style="margin-left: 15%" class="menu__link" outcome="View" value="#{bundle.EditEnrollmentViewLink}"/>
+                <h:commandLink class="menu__link" action="#{enrollmentController.update}" value="#{bundle.EditEnrollmentSaveLink}"/>
+
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

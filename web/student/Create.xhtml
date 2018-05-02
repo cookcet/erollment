@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.CreateStudentTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:commandLink style="margin-left: 15%" class="menu__link" action="#{studentController.prepareList}" value="#{bundle.CreateStudentShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.CreateStudentLabel_stdname}" for="stdname" />
+                    <h:inputText id="stdname" value="#{studentController.selected.stdname}" title="#{bundle.CreateStudentTitle_stdname}" />
+                    <h:outputLabel value="#{bundle.CreateStudentLabel_stdlname}" for="stdlname" />
+                    <h:inputText id="stdlname" value="#{studentController.selected.stdlname}" title="#{bundle.CreateStudentTitle_stdlname}" />
+                    <h:outputLabel value="#{bundle.CreateStudentLabel_stdadd}" for="stdadd" />
+                    <h:inputText id="stdadd" value="#{studentController.selected.stdadd}" title="#{bundle.CreateStudentTitle_stdadd}" />
+                    <h:outputLabel value="#{bundle.CreateStudentLabel_stdtel}" for="stdtel" />
+                    <h:inputText id="stdtel" value="#{studentController.selected.stdtel}" title="#{bundle.CreateStudentTitle_stdtel}" />
+                    <h:outputLabel value="#{bundle.CreateStudentLabel_stdfam}" for="stdfam" />
+                    <h:inputText id="stdfam" value="#{studentController.selected.stdfam}" title="#{bundle.CreateStudentTitle_stdfam}" />
+                    <h:outputLabel value="#{bundle.CreateStudentLabel_stdblood}" for="stdblood" />
+                    <h:inputText id="stdblood" value="#{studentController.selected.stdblood}" title="#{bundle.CreateStudentTitle_stdblood}" />
+                    <h:outputLabel value="#{bundle.CreateStudentLabel_stdciticode}" for="stdciticode" />
+                    <h:inputText id="stdciticode" value="#{studentController.selected.stdciticode}" title="#{bundle.CreateStudentTitle_stdciticode}" />
+                </h:panelGrid>
+                <br />
+                <h:commandLink style="margin-left: 15%" class="menu__link" action="#{studentController.create}" value="#{bundle.CreateStudentSaveLink}" />
+
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

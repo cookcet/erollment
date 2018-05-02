@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ViewTeacherTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:commandLink style="margin-left: 15%" class="menu__link" action="#{teacherController.prepareCreate}" value="#{bundle.ViewTeacherCreateLink}" />
+                <h:commandLink class="menu__link" action="#{teacherController.prepareList}" value="#{bundle.ViewTeacherShowAllLink}"/>
+                <br />
+                <br />
+                <h:panelGrid columns="2">
+                    <h:outputText value="#{bundle.ViewTeacherLabel_teacherid}"/>
+                    <h:outputText value="#{teacherController.selected.teacherid}" title="#{bundle.ViewTeacherTitle_teacherid}"/>
+                    <h:outputText value="#{bundle.ViewTeacherLabel_teaname}"/>
+                    <h:outputText value="#{teacherController.selected.teaname}" title="#{bundle.ViewTeacherTitle_teaname}"/>
+                    <h:outputText value="#{bundle.ViewTeacherLabel_tealname}"/>
+                    <h:outputText value="#{teacherController.selected.tealname}" title="#{bundle.ViewTeacherTitle_tealname}"/>
+                    <h:outputText value="#{bundle.ViewTeacherLabel_teaadd}"/>
+                    <h:outputText value="#{teacherController.selected.teaadd}" title="#{bundle.ViewTeacherTitle_teaadd}"/>
+                    <h:outputText value="#{bundle.ViewTeacherLabel_teatel}"/>
+                    <h:outputText value="#{teacherController.selected.teatel}" title="#{bundle.ViewTeacherTitle_teatel}"/>
+                    <h:outputText value="#{bundle.ViewTeacherLabel_teaciticode}"/>
+                    <h:outputText value="#{teacherController.selected.teaciticode}" title="#{bundle.ViewTeacherTitle_teaciticode}"/>
+                </h:panelGrid>
+                <br />
+                <h:link style="margin-left: 15%" class="menu__link" outcome="Edit" value="#{bundle.ViewTeacherEditLink}"/>
+                <h:commandLink class="menu__link" action="#{teacherController.destroyAndView}" value="#{bundle.ViewTeacherDestroyLink}"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.CreateTeacherTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:commandLink style="margin-left: 15%" class="menu__link" action="#{teacherController.prepareList}" value="#{bundle.CreateTeacherShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.CreateTeacherLabel_teaname}" for="teaname" />
+                    <h:inputText id="teaname" value="#{teacherController.selected.teaname}" title="#{bundle.CreateTeacherTitle_teaname}" />
+                    <h:outputLabel value="#{bundle.CreateTeacherLabel_tealname}" for="tealname" />
+                    <h:inputText id="tealname" value="#{teacherController.selected.tealname}" title="#{bundle.CreateTeacherTitle_tealname}" />
+                    <h:outputLabel value="#{bundle.CreateTeacherLabel_teaadd}" for="teaadd" />
+                    <h:inputText id="teaadd" value="#{teacherController.selected.teaadd}" title="#{bundle.CreateTeacherTitle_teaadd}" />
+                    <h:outputLabel value="#{bundle.CreateTeacherLabel_teatel}" for="teatel" />
+                    <h:inputText id="teatel" value="#{teacherController.selected.teatel}" title="#{bundle.CreateTeacherTitle_teatel}" />
+                    <h:outputLabel value="#{bundle.CreateTeacherLabel_teaciticode}" for="teaciticode" />
+                    <h:inputText id="teaciticode" value="#{teacherController.selected.teaciticode}" title="#{bundle.CreateTeacherTitle_teaciticode}" />
+                </h:panelGrid>
+                <br />
+                <h:commandLink style="margin-left: 15%" class="menu__link" action="#{teacherController.create}" value="#{bundle.CreateTeacherSaveLink}" />
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

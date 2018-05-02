@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ViewClasTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:commandLink style="margin-left: 15%" class="menu__link" action="#{clasController.prepareCreate}" value="#{bundle.ViewClasCreateLink}" />
+                <h:commandLink class="menu__link" action="#{clasController.prepareList}" value="#{bundle.ViewClasShowAllLink}"/>
+                <br />
+                <br />
+                <h:panelGrid columns="2">
+                    <h:outputText value="#{bundle.ViewClasLabel_classid}"/>
+                    <h:outputText value="#{clasController.selected.classid}" title="#{bundle.ViewClasTitle_classid}"/>
+                    <h:outputText value="#{bundle.ViewClasLabel_course}"/>
+                    <h:outputText value="#{clasController.selected.course.coursename}" title="#{bundle.ViewClasTitle_course}"/>
+                    <h:outputText value="#{bundle.ViewClasLabel_classeme}"/>
+                    <h:outputText value="#{clasController.selected.classeme}" title="#{bundle.ViewClasTitle_classeme}"/>
+                    <h:outputText value="#{bundle.ViewClasLabel_classec}"/>
+                    <h:outputText value="#{clasController.selected.classec}" title="#{bundle.ViewClasTitle_classec}"/>
+                    <h:outputText value="#{bundle.ViewClasLabel_teacher}"/>
+                    <h:outputText value="#{clasController.selected.teacher.teaname}" title="#{bundle.ViewClasTitle_teacher}"/>
+                </h:panelGrid>
+                <br />
+                <h:link style="margin-left: 15%" class="menu__link" outcome="Edit" value="#{bundle.ViewClasEditLink}"/>
+                <h:commandLink class="menu__link" action="#{clasController.destroyAndView}" value="#{bundle.ViewClasDestroyLink}"/>
+                
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

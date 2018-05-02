@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/templateHome.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ViewEnrollmentTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:commandLink style="margin-left: 15%" class="menu__link" action="#{enrollmentController.prepareListHome}" value="#{bundle.ViewEnrollmentShowAllLink}"/>
+                <br />
+                <br />
+                <h:panelGrid columns="2">
+                    <h:outputText value="#{bundle.ViewEnrollmentLabel_enrollmentid}"/>
+                    <h:outputText value="#{enrollmentController.selected.enrollmentid}" title="#{bundle.ViewEnrollmentTitle_enrollmentid}"/>
+                    <h:outputText value="#{bundle.ViewEnrollmentLabel_student}"/>
+                    <h:outputText value="#{enrollmentController.selected.student.stdname}" title="#{bundle.ViewEnrollmentTitle_student}"/>
+                    <h:outputText value="Lastname:"/>
+                    <h:outputText value="#{enrollmentController.selected.student.stdlname}" title="#{bundle.ViewEnrollmentTitle_student}"/>
+                    <h:outputText value="Blood Group:"/>
+                    <h:outputText value="#{enrollmentController.selected.student.stdblood}" title="#{bundle.ViewEnrollmentTitle_student}"/>
+                    <h:outputText value="Tel.:"/>
+                    <h:outputText value="#{enrollmentController.selected.student.stdtel}" title="#{bundle.ViewEnrollmentTitle_student}"/>
+                    <h:outputText value="Address"/>
+                    <h:outputText value="#{enrollmentController.selected.student.stdadd}" title="#{bundle.ViewEnrollmentTitle_student}"/>
+                    <h:outputText value="Family Parent"/>
+                    <h:outputText value="#{enrollmentController.selected.student.stdfam}" title="#{bundle.ViewEnrollmentTitle_student}"/>
+                    <h:outputText value="#{bundle.ViewEnrollmentLabel_enrollmentgrade}"/>
+                    <h:outputText value="#{enrollmentController.selected.enrollmentgrade}" title="#{bundle.ViewEnrollmentTitle_enrollmentgrade}"/>
+                    <h:outputText value="#{bundle.ViewEnrollmentLabel_enrollmentseme}"/>
+                    <h:outputText value="#{enrollmentController.selected.enrollmentseme}" title="#{bundle.ViewEnrollmentTitle_enrollmentseme}"/>
+                    <h:outputText value="#{bundle.ViewEnrollmentLabel_clas}"/>
+                    <h:outputText value="#{enrollmentController.selected.clas.classeme}" title="#{bundle.ViewEnrollmentTitle_clas}"/>
+                    <h:outputText value="Advisor"/>
+                    <h:outputText value="#{enrollmentController.selected.clas.teacher.teaname}" title="#{bundle.ViewEnrollmentTitle_clas}"/>
+                    <h:outputText value="#{bundle.ViewEnrollmentLabel_enrollmentresult}"/>
+                    <h:outputText value="#{enrollmentController.selected.enrollmentresult}" title="#{bundle.ViewEnrollmentTitle_enrollmentresult}"/>
+                </h:panelGrid>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>
